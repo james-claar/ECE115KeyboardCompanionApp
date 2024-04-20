@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO.Ports;
@@ -20,15 +21,46 @@ namespace ECE115
             InitializeComponent();
         }
 
+        private void connectToArduino()
+        {
+            string[] ports = SerialPort.GetPortNames(); // Gets available ports and allows computer to pick
+            serialPort1.BaudRate = 115200;
+
+            if (serialPort1.IsOpen)
+            {
+                serialPort1.Close();
+            }
+
+            foreach (string port in ports)
+            {
+                try
+                {
+                    serialPort1.PortName = port;
+                    serialPort1.Open();
+
+                    connected.Text = "Connected on " + port;
+                    break;
+                }
+                catch { } // Do nothing on fail, check next port
+            }
+
+            if (!serialPort1.IsOpen)
+            {
+                MessageBox.Show("Could not find Arduino", "Error");
+            }
+        }
+
         private void Form1_Load(object sender, EventArgs e)
         {
             string[] ports = SerialPort.GetPortNames(); // Gets available ports and allows computer to pick
             comboBoxPort.Items.AddRange(ports);
-           
+
         }
 
         private void buttonPort_Click(object sender, EventArgs e)
         {
+            connectToArduino();
+            /*
             try
             {
                 serialPort1.PortName = comboBoxPort.Text;
@@ -43,6 +75,7 @@ namespace ECE115
             {
                 MessageBox.Show(ex.Message, "Error");
             }
+            */
         }
 
         private void serialPort1_DataReceived(object sender, SerialDataReceivedEventArgs e)
@@ -67,7 +100,7 @@ namespace ECE115
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-           // label1.Text = dataRecieved;
+            // label1.Text = dataRecieved;
         }
     }
 }
