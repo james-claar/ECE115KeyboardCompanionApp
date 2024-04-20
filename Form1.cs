@@ -83,18 +83,16 @@ namespace ECE115
         private void serialPort1_DataReceived(object sender, SerialDataReceivedEventArgs e)
         {
 
-            Dictionary<string, string> data = new Dictionary<string, string>()
+            List<string> programs = new List<string>()
             {
-                {"1" , "notepad.exe" },
-                {"2" , "mspaint.exe" },
-                {"3" , "systemsettings.exe"},
-                {"4" , "Go cats!"},
-                {"5" , " "},
-                {"6" , "K"},
-                {"7" , "S"},
-                {"8" , "U"},
-
-
+                "notepad.exe",
+                "mspaint.exe",
+                "systemsettings.exe",
+                "Go cats!",
+                " ",
+                "K",
+                "S",
+                "U",
             };
 
             if (serialPort1.IsOpen)
@@ -121,24 +119,14 @@ namespace ECE115
                         serialPort1.Write("Go Cats!");
                         break;
                     case 5:
-                        SendKeys.SendWait(" ");
-                        serialPort1.Write(" ");
                         break;
                     case 6:
-                        SendKeys.SendWait("K");
-                        serialPort1.Write("K");
                         break;
                     case 7:
-                        SendKeys.SendWait("S");
-                        serialPort1.Write("S");
                         break;
                     case 8:
-                        SendKeys.SendWait("U");
-                        serialPort1.Write("U");
                         break;
                     default:
-                        SendKeys.SendWait(" ");
-                        serialPort1.Write(" ");
                         break;
                 }
 
@@ -168,6 +156,11 @@ namespace ECE115
         {
             // label1.Text = dataRecieved;
             // label1.Text = dataRecieved;
+        }
+
+        private void serialSendClick(object sender, EventArgs e)
+        {
+            serialPort1.WriteLine(serialSendBox.Text);
         }
     }
 }
