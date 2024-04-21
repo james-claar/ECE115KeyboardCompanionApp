@@ -149,6 +149,7 @@
             this.button1DropDown.Name = "button1DropDown";
             this.button1DropDown.Size = new System.Drawing.Size(168, 28);
             this.button1DropDown.TabIndex = 27;
+            this.button1DropDown.SelectedIndexChanged += new System.EventHandler(this.button1DropDown_SelectedIndexChanged);
             // 
             // button2DropDown
             // 
@@ -157,6 +158,7 @@
             this.button2DropDown.Name = "button2DropDown";
             this.button2DropDown.Size = new System.Drawing.Size(168, 28);
             this.button2DropDown.TabIndex = 30;
+            this.button2DropDown.SelectedIndexChanged += new System.EventHandler(this.button2DropDown_SelectedIndexChanged);
             // 
             // button2IsProgram
             // 
@@ -185,6 +187,7 @@
             this.button4DropDown.Name = "button4DropDown";
             this.button4DropDown.Size = new System.Drawing.Size(168, 28);
             this.button4DropDown.TabIndex = 36;
+            this.button4DropDown.SelectedIndexChanged += new System.EventHandler(this.button4DropDown_SelectedIndexChanged);
             // 
             // button4IsProgram
             // 
@@ -213,6 +216,7 @@
             this.button3DropDown.Name = "button3DropDown";
             this.button3DropDown.Size = new System.Drawing.Size(168, 28);
             this.button3DropDown.TabIndex = 33;
+            this.button3DropDown.SelectedIndexChanged += new System.EventHandler(this.button3DropDown_SelectedIndexChanged);
             // 
             // button3IsProgram
             // 
@@ -241,6 +245,7 @@
             this.button8DropDown.Name = "button8DropDown";
             this.button8DropDown.Size = new System.Drawing.Size(168, 28);
             this.button8DropDown.TabIndex = 48;
+            this.button8DropDown.SelectedIndexChanged += new System.EventHandler(this.button8DropDown_SelectedIndexChanged);
             // 
             // button8IsProgram
             // 
@@ -269,6 +274,7 @@
             this.button7DropDown.Name = "button7DropDown";
             this.button7DropDown.Size = new System.Drawing.Size(168, 28);
             this.button7DropDown.TabIndex = 45;
+            this.button7DropDown.SelectedIndexChanged += new System.EventHandler(this.button7DropDown_SelectedIndexChanged);
             // 
             // button7IsProgram
             // 
@@ -297,6 +303,7 @@
             this.button6DropDown.Name = "button6DropDown";
             this.button6DropDown.Size = new System.Drawing.Size(168, 28);
             this.button6DropDown.TabIndex = 42;
+            this.button6DropDown.SelectedIndexChanged += new System.EventHandler(this.button6DropDown_SelectedIndexChanged);
             // 
             // button6IsProgram
             // 
@@ -325,6 +332,7 @@
             this.button5DropDown.Name = "button5DropDown";
             this.button5DropDown.Size = new System.Drawing.Size(168, 28);
             this.button5DropDown.TabIndex = 39;
+            this.button5DropDown.SelectedIndexChanged += new System.EventHandler(this.button5DropDown_SelectedIndexChanged);
             // 
             // button5IsProgram
             // 

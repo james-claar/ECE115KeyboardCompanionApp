@@ -14,16 +14,22 @@ namespace ECE115
 {
     public partial class Form1 : Form
     {
-        List<string> programs = new List<string>()
+        List<string> allPrograms = new List<string>()
         {
             "notepad.exe",
             "mspaint.exe",
             "systemsettings.exe",
-            " ",
-            " ",
-            "K",
-            "S",
-            "U",
+        };
+        List<int> selectedPrograms = new List<int>() // Which index in allPrograms each button points to
+        {
+            0,
+            1,
+            2,
+            0,
+            0,
+            0,
+            0,
+            0
         };
         List<byte> configuredKeys = new List<byte>()
         {
@@ -47,6 +53,13 @@ namespace ECE115
             false,
             false
         };
+        List<string> allCharacters = new List<string>()
+        {
+            "a",
+            "b",
+            "c",
+            "d"
+        };
 
         string dataRecieved = "";
 
@@ -55,33 +68,30 @@ namespace ECE115
             InitializeComponent();
         }
 
-        private void connectToArduino()
+        private void getArduinoConfiguration()
         {
-            string[] ports = SerialPort.GetPortNames(); // Gets available ports and allows computer to pick
-            serialPort1.BaudRate = 115200;
+            serialPort1.WriteLine("C"); // Tell Arduino to print configuration
+        }
 
-            if (serialPort1.IsOpen)
-            {
-                serialPort1.Close();
-            }
+        private void setProgramOpener(int buttonNo, bool programOpener)
+        {
+            isProgramOpener[buttonNo - 1] = programOpener;
+            string command = "O" + buttonNo.ToString() + (programOpener ? "1" : "0");
+            serialPort1.WriteLine(command);
+        }
 
-            foreach (string port in ports)
-            {
-                try
-                {
-                    serialPort1.PortName = port;
-                    serialPort1.Open();
+        private void setKeyASCII(int buttonNo, string asciiValue)
+        {
+            configuredKeys[buttonNo - 1] = (byte) asciiValue[0];
+            string command = "O" + buttonNo.ToString() + asciiValue[0];
+            serialPort1.WriteLine(command);
+        }
 
-                    connected.Text = "Connected on " + port;
-                    break;
-                }
-                catch { } // Do nothing on fail, check next port
-            }
-
-            if (!serialPort1.IsOpen)
-            {
-                MessageBox.Show("Could not find Arduino", "Error");
-            }
+        private void setKeyHex(int buttonNo, byte hexValue)
+        {
+            configuredKeys[buttonNo - 1] = hexValue;
+            string command = "H" + buttonNo.ToString() + hexValue.ToString("X2");
+            serialPort1.WriteLine(command);
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -148,7 +158,7 @@ namespace ECE115
 
                     if (r >= 0 && r <= 7)
                     {
-                        Process.Start(programs[r]);
+                        Process.Start(allPrograms[selectedPrograms[r]]);
                     }
                 }
                 else if (count == 16)
@@ -177,42 +187,106 @@ namespace ECE115
             serialPort1.WriteLine(serialSendBox.Text);
         }
 
+        private void updateCheckbox(CheckBox checkBox, ComboBox dropdown)
+        {
+            // Updates Arduino and dropdown given a checkbox that changed.
+            bool isChecked = checkBox.Checked;
+            setProgramOpener(1, isChecked);
+            if (isChecked)
+            {
+                setDropDownList(dropdown, allPrograms);
+            }
+            else
+            {
+                setDropDownList(dropdown, allCharacters);
+            }
+        }
+
+        private void setDropDownList(ComboBox dropdown, List<string> selectList)
+        {
+            dropdown.Items.Clear();
+            foreach (string item in selectList)
+            {
+                dropdown.Items.Add(item);
+            }
+        }
+
         private void button1IsProgramCheckedChanged(object sender, EventArgs e)
         {
-
+            updateCheckbox(button1IsProgram, button1DropDown);
         }
 
         private void button2IsProgramCheckedChanged(object sender, EventArgs e)
         {
-
+            updateCheckbox(button2IsProgram, button2DropDown);
         }
 
         private void button3IsProgramCheckedChanged(object sender, EventArgs e)
         {
-
+            updateCheckbox(button3IsProgram, button3DropDown);
         }
 
         private void button4IsProgramCheckedChanged(object sender, EventArgs e)
         {
-
+            updateCheckbox(button4IsProgram, button4DropDown);
         }
 
         private void button5IsProgramCheckedChanged(object sender, EventArgs e)
         {
-
+            updateCheckbox(button5IsProgram, button5DropDown);
         }
 
         private void button6IsProgramCheckedChanged(object sender, EventArgs e)
         {
-
+            updateCheckbox(button6IsProgram, button6DropDown);
         }
 
         private void button7IsProgramCheckedChanged(object sender, EventArgs e)
         {
-
+            updateCheckbox(button7IsProgram, button7DropDown);
         }
 
         private void button8IsProgramCheckedChanged(object sender, EventArgs e)
+        {
+            updateCheckbox(button8IsProgram, button8DropDown);
+        }
+
+        private void button1DropDown_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button2DropDown_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button3DropDown_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button4DropDown_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button5DropDown_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button6DropDown_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button7DropDown_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button8DropDown_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }
