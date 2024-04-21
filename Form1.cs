@@ -174,12 +174,6 @@ namespace ECE115
             }
         }
 
-        private void timer1_Tick(object sender, EventArgs e)
-        {
-            // label1.Text = dataRecieved;
-            // label1.Text = dataRecieved;
-        }
-
         private void serialSendClick(object sender, EventArgs e)
         {
             serialPort1.WriteLine(serialSendBox.Text);
