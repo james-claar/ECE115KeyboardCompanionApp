@@ -301,17 +301,25 @@ namespace ECE115
             }
             if (tellArduino)
             {
-                Action safeCheck = delegate { setProgramOpener(buttonNo, isChecked); };
+                Action safeCheck = delegate {
+                    setProgramOpener(buttonNo, isChecked);
+                };
                 checkBox.Invoke(safeCheck);
             }
             if (isChecked)
             {
-                Action safeSetList = delegate { setDropDownList(dropdown, allPrograms); };
+                Action safeSetList = delegate
+                {
+                    setDropDownList(dropdown, allPrograms);
+                    dropdown.SelectedIndex = selectedPrograms[buttonNo - 1];
+                };
                 dropdown.Invoke(safeSetList);
             }
             else
             {
-                Action safeSetList = delegate { setDropDownList(dropdown, allCharacters); };
+                Action safeSetList = delegate {
+                    setDropDownList(dropdown, allCharacters);
+                };
                 dropdown.Invoke(safeSetList);
             }
         }
