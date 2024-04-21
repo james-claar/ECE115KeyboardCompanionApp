@@ -64,6 +64,7 @@ namespace ECE115
             "d"
         };
 
+        bool isArduinoConnected = false;
         string dataRecieved = "";
 
         public Form1()
@@ -73,28 +74,78 @@ namespace ECE115
 
         private void getArduinoConfiguration()
         {
-            serialPort1.WriteLine("C"); // Tell Arduino to print configuration
+            try
+            {
+                serialPort1.WriteLine("C"); // Tell Arduino to print configuration
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error");
+            }
         }
 
         private void setProgramOpener(int buttonNo, bool programOpener)
         {
             isProgramOpener[buttonNo - 1] = programOpener;
             string command = "O" + buttonNo.ToString() + (programOpener ? "1" : "0");
-            serialPort1.WriteLine(command);
+            try
+            {
+                serialPort1.WriteLine(command);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error");
+            }
         }
 
         private void setKeyASCII(int buttonNo, string asciiValue)
         {
             configuredKeys[buttonNo - 1] = (byte) asciiValue[0];
             string command = "O" + buttonNo.ToString() + asciiValue[0];
-            serialPort1.WriteLine(command);
+            try
+            {
+                serialPort1.WriteLine(command);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error");
+            }
         }
 
-        private void setKeyHex(int buttonNo, byte hexValue)
+        private void setKeyByte(int buttonNo, byte hexValue)
         {
             configuredKeys[buttonNo - 1] = hexValue;
             string command = "H" + buttonNo.ToString() + hexValue.ToString("X2");
-            serialPort1.WriteLine(command);
+            try
+            {
+                serialPort1.WriteLine(command);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error");
+            }
+        }
+
+        private void enableSerialUI()
+        {
+            // Enables all serial-based elements
+            serialSendButton.Enabled = true;
+            button1IsProgram.Enabled = true;
+            button2IsProgram.Enabled = true;
+            button3IsProgram.Enabled = true;
+            button4IsProgram.Enabled = true;
+            button5IsProgram.Enabled = true;
+            button6IsProgram.Enabled = true;
+            button7IsProgram.Enabled = true;
+            button8IsProgram.Enabled = true;
+            button1DropDown.Enabled = true;
+            button2DropDown.Enabled = true;
+            button3DropDown.Enabled = true;
+            button4DropDown.Enabled = true;
+            button5DropDown.Enabled = true;
+            button6DropDown.Enabled = true;
+            button7DropDown.Enabled = true;
+            button8DropDown.Enabled = true;
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -102,21 +153,18 @@ namespace ECE115
             string[] ports = SerialPort.GetPortNames(); // Gets available ports and allows computer to pick
             comboBoxPort.Items.AddRange(ports);
             connected.Text = "";
-
-
         }
 
         private void buttonPort_Click(object sender, EventArgs e)
         {
-
             try
             {
                 serialPort1.PortName = comboBoxPort.Text;
                 serialPort1.BaudRate = 115200;
                 serialPort1.Open();
                 connected.Text = "Connected";
-                //serialPort1.Write(textBox1.Text);
 
+                enableSerialUI();
                 getArduinoConfiguration();
             }
             catch (Exception ex)
@@ -187,7 +235,14 @@ namespace ECE115
 
         private void serialSendClick(object sender, EventArgs e)
         {
-            serialPort1.WriteLine(serialSendBox.Text);
+            try
+            {
+                serialPort1.WriteLine(serialSendBox.Text);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error");
+            }
         }
 
         public void updateCheckboxSafe(int buttonNo, bool setCheckbox = false, bool checkboxValue = false, bool tellArduino = true)

@@ -134,6 +134,7 @@
             // button1IsProgram
             // 
             this.button1IsProgram.AutoSize = true;
+            this.button1IsProgram.Enabled = false;
             this.button1IsProgram.Location = new System.Drawing.Point(51, 208);
             this.button1IsProgram.Name = "button1IsProgram";
             this.button1IsProgram.Size = new System.Drawing.Size(104, 24);
@@ -144,6 +145,7 @@
             // 
             // button1DropDown
             // 
+            this.button1DropDown.Enabled = false;
             this.button1DropDown.FormattingEnabled = true;
             this.button1DropDown.Location = new System.Drawing.Point(51, 238);
             this.button1DropDown.Name = "button1DropDown";
@@ -153,6 +155,7 @@
             // 
             // button2DropDown
             // 
+            this.button2DropDown.Enabled = false;
             this.button2DropDown.FormattingEnabled = true;
             this.button2DropDown.Location = new System.Drawing.Point(226, 238);
             this.button2DropDown.Name = "button2DropDown";
@@ -163,6 +166,7 @@
             // button2IsProgram
             // 
             this.button2IsProgram.AutoSize = true;
+            this.button2IsProgram.Enabled = false;
             this.button2IsProgram.Location = new System.Drawing.Point(226, 208);
             this.button2IsProgram.Name = "button2IsProgram";
             this.button2IsProgram.Size = new System.Drawing.Size(104, 24);
@@ -182,6 +186,7 @@
             // 
             // button4DropDown
             // 
+            this.button4DropDown.Enabled = false;
             this.button4DropDown.FormattingEnabled = true;
             this.button4DropDown.Location = new System.Drawing.Point(574, 238);
             this.button4DropDown.Name = "button4DropDown";
@@ -192,6 +197,7 @@
             // button4IsProgram
             // 
             this.button4IsProgram.AutoSize = true;
+            this.button4IsProgram.Enabled = false;
             this.button4IsProgram.Location = new System.Drawing.Point(574, 208);
             this.button4IsProgram.Name = "button4IsProgram";
             this.button4IsProgram.Size = new System.Drawing.Size(104, 24);
@@ -211,6 +217,7 @@
             // 
             // button3DropDown
             // 
+            this.button3DropDown.Enabled = false;
             this.button3DropDown.FormattingEnabled = true;
             this.button3DropDown.Location = new System.Drawing.Point(400, 238);
             this.button3DropDown.Name = "button3DropDown";
@@ -221,6 +228,7 @@
             // button3IsProgram
             // 
             this.button3IsProgram.AutoSize = true;
+            this.button3IsProgram.Enabled = false;
             this.button3IsProgram.Location = new System.Drawing.Point(400, 208);
             this.button3IsProgram.Name = "button3IsProgram";
             this.button3IsProgram.Size = new System.Drawing.Size(104, 24);
@@ -240,6 +248,7 @@
             // 
             // button8DropDown
             // 
+            this.button8DropDown.Enabled = false;
             this.button8DropDown.FormattingEnabled = true;
             this.button8DropDown.Location = new System.Drawing.Point(574, 375);
             this.button8DropDown.Name = "button8DropDown";
@@ -250,6 +259,7 @@
             // button8IsProgram
             // 
             this.button8IsProgram.AutoSize = true;
+            this.button8IsProgram.Enabled = false;
             this.button8IsProgram.Location = new System.Drawing.Point(574, 345);
             this.button8IsProgram.Name = "button8IsProgram";
             this.button8IsProgram.Size = new System.Drawing.Size(104, 24);
@@ -269,6 +279,7 @@
             // 
             // button7DropDown
             // 
+            this.button7DropDown.Enabled = false;
             this.button7DropDown.FormattingEnabled = true;
             this.button7DropDown.Location = new System.Drawing.Point(400, 375);
             this.button7DropDown.Name = "button7DropDown";
@@ -279,6 +290,7 @@
             // button7IsProgram
             // 
             this.button7IsProgram.AutoSize = true;
+            this.button7IsProgram.Enabled = false;
             this.button7IsProgram.Location = new System.Drawing.Point(400, 345);
             this.button7IsProgram.Name = "button7IsProgram";
             this.button7IsProgram.Size = new System.Drawing.Size(104, 24);
@@ -298,6 +310,7 @@
             // 
             // button6DropDown
             // 
+            this.button6DropDown.Enabled = false;
             this.button6DropDown.FormattingEnabled = true;
             this.button6DropDown.Location = new System.Drawing.Point(226, 375);
             this.button6DropDown.Name = "button6DropDown";
@@ -308,6 +321,7 @@
             // button6IsProgram
             // 
             this.button6IsProgram.AutoSize = true;
+            this.button6IsProgram.Enabled = false;
             this.button6IsProgram.Location = new System.Drawing.Point(226, 345);
             this.button6IsProgram.Name = "button6IsProgram";
             this.button6IsProgram.Size = new System.Drawing.Size(104, 24);
@@ -327,6 +341,7 @@
             // 
             // button5DropDown
             // 
+            this.button5DropDown.Enabled = false;
             this.button5DropDown.FormattingEnabled = true;
             this.button5DropDown.Location = new System.Drawing.Point(51, 375);
             this.button5DropDown.Name = "button5DropDown";
@@ -337,6 +352,7 @@
             // button5IsProgram
             // 
             this.button5IsProgram.AutoSize = true;
+            this.button5IsProgram.Enabled = false;
             this.button5IsProgram.Location = new System.Drawing.Point(51, 345);
             this.button5IsProgram.Name = "button5IsProgram";
             this.button5IsProgram.Size = new System.Drawing.Size(104, 24);
@@ -366,6 +382,7 @@
             // 
             // serialSendButton
             // 
+            this.serialSendButton.Enabled = false;
             this.serialSendButton.Location = new System.Drawing.Point(621, 54);
             this.serialSendButton.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.serialSendButton.Name = "serialSendButton";
