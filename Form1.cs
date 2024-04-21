@@ -14,6 +14,40 @@ namespace ECE115
 {
     public partial class Form1 : Form
     {
+        List<string> programs = new List<string>()
+        {
+            "notepad.exe",
+            "mspaint.exe",
+            "systemsettings.exe",
+            " ",
+            " ",
+            "K",
+            "S",
+            "U",
+        };
+        List<char> configuredKeys = new List<char>()
+        {
+            'A',
+            'B',
+            'C',
+            'D',
+            'E',
+            'F',
+            'G',
+            'H'
+        };
+        List<bool> isProgramOpener = new List<bool>()
+        {
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false
+        };
+
         string dataRecieved = "";
 
         public Form1()
@@ -82,73 +116,41 @@ namespace ECE115
 
         private void serialPort1_DataReceived(object sender, SerialDataReceivedEventArgs e)
         {
-
-            List<string> programs = new List<string>()
-            {
-                "notepad.exe",
-                "mspaint.exe",
-                "systemsettings.exe",
-                "Go cats!",
-                " ",
-                "K",
-                "S",
-                "U",
-            };
-
             if (serialPort1.IsOpen)
             {
+                List<byte> inputBuffer = new List<byte>();
 
-                dataRecieved = serialPort1.ReadLine();
-                int r = Int32.Parse(dataRecieved);
-                // dataRecieved = data
-
-
-
-                switch (r)
+                // Read until we hit a newline
+                int count = 0;
+                byte inputByte;
+                while (true)
                 {
-                    case 1:
-                        Process.Start("notepad.exe");
+                    while (serialPort1.BytesToRead == 0) { };
+                    inputByte = (byte) serialPort1.ReadByte();
+                    if (inputByte == '\n')
+                    {
                         break;
-                    case 2:
-                        Process.Start("mspaint.exe");
-                        break;
-                    case 3:
-                        Process.Start("Excel.exe");
-                        break;
-                    case 4:
-                        serialPort1.Write("Go Cats!");
-                        break;
-                    case 5:
-                        break;
-                    case 6:
-                        break;
-                    case 7:
-                        break;
-                    case 8:
-                        break;
-                    default:
-                        break;
+                    }
+                    else
+                    {
+                        inputBuffer.Add(inputByte);
+                        count++;
+                    }
                 }
 
-
-                /*  if (r == 1 ||)
-                  {
-                      MessageBox.Show("Hey");
-                  }*/
-                /*string a = data[dataRecieved];
-                MessageBox.Show(dataRecieved);
-                if (a.Equals("notepad.exe") || a.Equals("mspaint.exe") || a.Equals("systemsettings.exe"))
+                if (count == 1)
                 {
-                    //string temp = data[dataRecieved];
-                    Process.Start(a);                             
+                    int r = inputBuffer[0] - '0' - 1; // Go through 0-7 instead of 1-8
+
+                    if (r >= 0 && r <= 7)
+                    {
+                        Process.Start(programs[r]);
+                    }
                 }
                 else
                 {
-                    string temp = data[dataRecieved];
-                    SendKeys.SendWait(temp);
-                    serialPort1.Write(temp);
-                }*/
-
+                    // Update configuration
+                }
             }
         }
 
