@@ -10,6 +10,9 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO.Ports;
 using System.Diagnostics;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.Button;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.ToolTip;
+
 namespace ECE115
 {
     public partial class Form1 : Form
@@ -114,8 +117,7 @@ namespace ECE115
                 connected.Text = "Connected";
                 //serialPort1.Write(textBox1.Text);
 
-
-
+                getArduinoConfiguration();
             }
             catch (Exception ex)
             {
@@ -173,6 +175,7 @@ namespace ECE115
                     for (int i = 0; i < 8; i++)
                     {
                         isProgramOpener[i] = inputBuffer[i + 8] == '1';
+                        updateCheckboxSafe(i + 1, true, isProgramOpener[i], false);
                     }
                 }
                 else
@@ -187,18 +190,74 @@ namespace ECE115
             serialPort1.WriteLine(serialSendBox.Text);
         }
 
-        private void updateCheckbox(CheckBox checkBox, ComboBox dropdown)
+        public void updateCheckboxSafe(int buttonNo, bool setCheckbox = false, bool checkboxValue = false, bool tellArduino = true)
         {
-            // Updates Arduino and dropdown given a checkbox that changed.
-            bool isChecked = checkBox.Checked;
-            setProgramOpener(1, isChecked);
-            if (isChecked)
+            System.Windows.Forms.CheckBox checkBox;
+            ComboBox dropdown;
+            switch (buttonNo)
             {
-                setDropDownList(dropdown, allPrograms);
+                case 1:
+                    checkBox = button1IsProgram;
+                    dropdown = button1DropDown;
+                    break;
+                case 2:
+                    checkBox = button2IsProgram;
+                    dropdown = button2DropDown;
+                    break;
+                case 3:
+                    checkBox = button3IsProgram;
+                    dropdown = button3DropDown;
+                    break;
+                case 4:
+                    checkBox = button4IsProgram;
+                    dropdown = button4DropDown;
+                    break;
+                case 5:
+                    checkBox = button5IsProgram;
+                    dropdown = button5DropDown;
+                    break;
+                case 6:
+                    checkBox = button6IsProgram;
+                    dropdown = button6DropDown;
+                    break;
+                case 7:
+                    checkBox = button7IsProgram;
+                    dropdown = button7DropDown;
+                    break;
+                case 8:
+                    checkBox = button8IsProgram;
+                    dropdown = button8DropDown;
+                    break;
+                default:
+                    return;
+            }
+
+            // Updates Arduino and dropdown given a checkbox that changed.
+            bool isChecked;
+            if (setCheckbox)
+            {
+                isChecked = checkboxValue;
+                Action safeSetCheckBox = delegate { checkBox.Checked = checkboxValue; };
+                checkBox.Invoke(safeSetCheckBox);
             }
             else
             {
-                setDropDownList(dropdown, allCharacters);
+                isChecked = checkBox.Checked;
+            }
+            if (tellArduino)
+            {
+                Action safeCheck = delegate { setProgramOpener(buttonNo, isChecked); };
+                checkBox.Invoke(safeCheck);
+            }
+            if (isChecked)
+            {
+                Action safeSetList = delegate { setDropDownList(dropdown, allPrograms); };
+                dropdown.Invoke(safeSetList);
+            }
+            else
+            {
+                Action safeSetList = delegate { setDropDownList(dropdown, allCharacters); };
+                dropdown.Invoke(safeSetList);
             }
         }
 
@@ -213,47 +272,47 @@ namespace ECE115
 
         private void button1IsProgramCheckedChanged(object sender, EventArgs e)
         {
-            updateCheckbox(button1IsProgram, button1DropDown);
+            updateCheckboxSafe(1);
         }
 
         private void button2IsProgramCheckedChanged(object sender, EventArgs e)
         {
-            updateCheckbox(button2IsProgram, button2DropDown);
+            updateCheckboxSafe(2);
         }
 
         private void button3IsProgramCheckedChanged(object sender, EventArgs e)
         {
-            updateCheckbox(button3IsProgram, button3DropDown);
+            updateCheckboxSafe(3);
         }
 
         private void button4IsProgramCheckedChanged(object sender, EventArgs e)
         {
-            updateCheckbox(button4IsProgram, button4DropDown);
+            updateCheckboxSafe(4);
         }
 
         private void button5IsProgramCheckedChanged(object sender, EventArgs e)
         {
-            updateCheckbox(button5IsProgram, button5DropDown);
+            updateCheckboxSafe(5);
         }
 
         private void button6IsProgramCheckedChanged(object sender, EventArgs e)
         {
-            updateCheckbox(button6IsProgram, button6DropDown);
+            updateCheckboxSafe(6);
         }
 
         private void button7IsProgramCheckedChanged(object sender, EventArgs e)
         {
-            updateCheckbox(button7IsProgram, button7DropDown);
+            updateCheckboxSafe(7);
         }
 
         private void button8IsProgramCheckedChanged(object sender, EventArgs e)
         {
-            updateCheckbox(button8IsProgram, button8DropDown);
+            updateCheckboxSafe(8);
         }
 
         private void button1DropDown_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            
         }
 
         private void button2DropDown_SelectedIndexChanged(object sender, EventArgs e)
