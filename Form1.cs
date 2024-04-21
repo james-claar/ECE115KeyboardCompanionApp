@@ -34,16 +34,16 @@ namespace ECE115
             0,
             0
         };
-        List<byte> configuredKeys = new List<byte>()
+        List<string> configuredKeys = new List<string>()
         {
-            (byte) 'A',
-            (byte) 'B',
-            (byte) 'C',
-            (byte) 'D',
-            (byte) 'E',
-            (byte) 'F',
-            (byte) 'G',
-            (byte) 'H'
+            "A",
+            "B",
+            "C",
+            "D",
+            "E",    
+            "F",
+            "G",
+            "H"
         };
         List<bool> isProgramOpener = new List<bool>()
         {
@@ -100,22 +100,8 @@ namespace ECE115
 
         private void setKeyASCII(int buttonNo, string asciiValue)
         {
-            configuredKeys[buttonNo - 1] = (byte) asciiValue[0];
+            configuredKeys[buttonNo - 1] = asciiValue;
             string command = "O" + buttonNo.ToString() + asciiValue[0];
-            try
-            {
-                serialPort1.WriteLine(command);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, "Error");
-            }
-        }
-
-        private void setKeyByte(int buttonNo, byte hexValue)
-        {
-            configuredKeys[buttonNo - 1] = hexValue;
-            string command = "H" + buttonNo.ToString() + hexValue.ToString("X2");
             try
             {
                 serialPort1.WriteLine(command);
@@ -171,7 +157,6 @@ namespace ECE115
             {
                 MessageBox.Show(ex.Message, "Error");
             }
-
         }
 
         private void serialPort1_DataReceived(object sender, SerialDataReceivedEventArgs e)
@@ -216,7 +201,7 @@ namespace ECE115
                     // Binary / ASCII values each key is configured for
                     for (int i = 0; i < 8; i++)
                     {
-                        configuredKeys[i] = inputBuffer[i];
+                        configuredKeys[i] = Encoding.ASCII.GetString(new[] { inputBuffer[i] });
                     }
 
                     // Boolean values of whether each button opens a program
