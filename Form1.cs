@@ -25,16 +25,16 @@ namespace ECE115
             "S",
             "U",
         };
-        List<char> configuredKeys = new List<char>()
+        List<byte> configuredKeys = new List<byte>()
         {
-            'A',
-            'B',
-            'C',
-            'D',
-            'E',
-            'F',
-            'G',
-            'H'
+            (byte) 'A',
+            (byte) 'B',
+            (byte) 'C',
+            (byte) 'D',
+            (byte) 'E',
+            (byte) 'F',
+            (byte) 'G',
+            (byte) 'H'
         };
         List<bool> isProgramOpener = new List<bool>()
         {
@@ -127,7 +127,11 @@ namespace ECE115
                 {
                     while (serialPort1.BytesToRead == 0) { };
                     inputByte = (byte) serialPort1.ReadByte();
-                    if (inputByte == '\n')
+                    if (inputByte == '\r')
+                    {
+                        continue;
+                    }
+                    else if (inputByte == '\n')
                     {
                         break;
                     }
@@ -147,9 +151,25 @@ namespace ECE115
                         Process.Start(programs[r]);
                     }
                 }
+                else if (count == 16)
+                {
+                    // Binary / ASCII values each key is configured for
+                    for (int i = 0; i < 8; i++)
+                    {
+                        configuredKeys[i] = inputBuffer[i];
+                    }
+
+                    // Boolean values of whether each button opens a program
+                    for (int i = 0; i < 8; i++)
+                    {
+                        isProgramOpener[i] = inputBuffer[i + 8] == '1';
+                    }
+
+                    int f = 1; // Dummy
+                }
                 else
                 {
-                    // Update configuration
+                    MessageBox.Show("Received serial message from Arduino of incorrect length.", "Error");
                 }
             }
         }
