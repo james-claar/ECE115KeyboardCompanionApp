@@ -164,8 +164,6 @@ namespace ECE115
                     {
                         isProgramOpener[i] = inputBuffer[i + 8] == '1';
                     }
-
-                    int f = 1; // Dummy
                 }
                 else
                 {
@@ -177,6 +175,46 @@ namespace ECE115
         private void serialSendClick(object sender, EventArgs e)
         {
             serialPort1.WriteLine(serialSendBox.Text);
+        }
+
+        private void button1IsProgramCheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button2IsProgramCheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button3IsProgramCheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button4IsProgramCheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button5IsProgramCheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button6IsProgramCheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button7IsProgramCheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button8IsProgramCheckedChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

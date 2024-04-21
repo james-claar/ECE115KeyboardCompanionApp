@@ -34,27 +34,34 @@
             this.buttonPort = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
-            this.label12 = new System.Windows.Forms.Label();
-            this.label13 = new System.Windows.Forms.Label();
-            this.label14 = new System.Windows.Forms.Label();
-            this.label15 = new System.Windows.Forms.Label();
-            this.label16 = new System.Windows.Forms.Label();
-            this.label17 = new System.Windows.Forms.Label();
-            this.label18 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.button1Label = new System.Windows.Forms.Label();
             this.connected = new System.Windows.Forms.Label();
-            this.serialSendButton = new System.Windows.Forms.Button();
             this.serialSendBox = new System.Windows.Forms.TextBox();
+            this.button1IsProgram = new System.Windows.Forms.CheckBox();
+            this.button1DropDown = new System.Windows.Forms.ComboBox();
+            this.button2DropDown = new System.Windows.Forms.ComboBox();
+            this.button2IsProgram = new System.Windows.Forms.CheckBox();
+            this.button2Label = new System.Windows.Forms.Label();
+            this.button4DropDown = new System.Windows.Forms.ComboBox();
+            this.button4IsProgram = new System.Windows.Forms.CheckBox();
+            this.button4Label = new System.Windows.Forms.Label();
+            this.button3DropDown = new System.Windows.Forms.ComboBox();
+            this.button3IsProgram = new System.Windows.Forms.CheckBox();
+            this.button3Label = new System.Windows.Forms.Label();
+            this.button8DropDown = new System.Windows.Forms.ComboBox();
+            this.button8IsProgram = new System.Windows.Forms.CheckBox();
+            this.button8Label = new System.Windows.Forms.Label();
+            this.button7DropDown = new System.Windows.Forms.ComboBox();
+            this.button7IsProgram = new System.Windows.Forms.CheckBox();
+            this.button7Label = new System.Windows.Forms.Label();
+            this.button6DropDown = new System.Windows.Forms.ComboBox();
+            this.button6IsProgram = new System.Windows.Forms.CheckBox();
+            this.button6Label = new System.Windows.Forms.Label();
+            this.button5DropDown = new System.Windows.Forms.ComboBox();
+            this.button5IsProgram = new System.Windows.Forms.CheckBox();
+            this.button5Label = new System.Windows.Forms.Label();
             this.serialLabel = new System.Windows.Forms.Label();
+            this.serialSendButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // serialPort1
@@ -65,25 +72,25 @@
             // comboBoxPort
             // 
             this.comboBoxPort.FormattingEnabled = true;
-            this.comboBoxPort.Location = new System.Drawing.Point(72, 106);
+            this.comboBoxPort.Location = new System.Drawing.Point(135, 21);
             this.comboBoxPort.Name = "comboBoxPort";
             this.comboBoxPort.Size = new System.Drawing.Size(122, 28);
             this.comboBoxPort.TabIndex = 0;
             // 
             // buttonPort
             // 
-            this.buttonPort.Location = new System.Drawing.Point(72, 163);
+            this.buttonPort.Location = new System.Drawing.Point(31, 55);
             this.buttonPort.Name = "buttonPort";
-            this.buttonPort.Size = new System.Drawing.Size(118, 35);
+            this.buttonPort.Size = new System.Drawing.Size(226, 35);
             this.buttonPort.TabIndex = 1;
-            this.buttonPort.Text = "Connect to Port";
+            this.buttonPort.Text = "Connect to Keyboard";
             this.buttonPort.UseVisualStyleBackColor = true;
             this.buttonPort.Click += new System.EventHandler(this.buttonPort_Click);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(75, 62);
+            this.label1.Location = new System.Drawing.Point(27, 24);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(102, 20);
             this.label1.TabIndex = 2;
@@ -92,175 +99,266 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(657, 37);
+            this.label2.Location = new System.Drawing.Point(310, 137);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(104, 20);
+            this.label2.Size = new System.Drawing.Size(156, 20);
             this.label2.TabIndex = 3;
-            this.label2.Text = "Button Guide";
+            this.label2.Text = "Button Configuration";
             // 
-            // label3
+            // button1Label
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(554, 72);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(70, 20);
-            this.label3.TabIndex = 4;
-            this.label3.Text = "Button 1";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(766, 72);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(51, 20);
-            this.label4.TabIndex = 5;
-            this.label4.Text = "label4";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(554, 128);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(70, 20);
-            this.label5.TabIndex = 6;
-            this.label5.Text = "Button 2";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(766, 128);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(51, 20);
-            this.label6.TabIndex = 7;
-            this.label6.Text = "label6";
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(554, 189);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(70, 20);
-            this.label7.TabIndex = 8;
-            this.label7.Text = "Button 3";
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(766, 189);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(51, 20);
-            this.label8.TabIndex = 9;
-            this.label8.Text = "label8";
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(554, 249);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(70, 20);
-            this.label9.TabIndex = 10;
-            this.label9.Text = "Button 4";
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(766, 249);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(60, 20);
-            this.label10.TabIndex = 11;
-            this.label10.Text = "label10";
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(554, 309);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(70, 20);
-            this.label11.TabIndex = 12;
-            this.label11.Text = "Button 5";
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(766, 309);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(60, 20);
-            this.label12.TabIndex = 13;
-            this.label12.Text = "label12";
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(554, 368);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(70, 20);
-            this.label13.TabIndex = 14;
-            this.label13.Text = "Button 6";
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(766, 368);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(60, 20);
-            this.label14.TabIndex = 15;
-            this.label14.Text = "label14";
-            // 
-            // label15
-            // 
-            this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(554, 428);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(70, 20);
-            this.label15.TabIndex = 16;
-            this.label15.Text = "Button 7";
-            // 
-            // label16
-            // 
-            this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(766, 428);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(60, 20);
-            this.label16.TabIndex = 17;
-            this.label16.Text = "label16";
-            // 
-            // label17
-            // 
-            this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(554, 485);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(70, 20);
-            this.label17.TabIndex = 18;
-            this.label17.Text = "Button 8";
-            // 
-            // label18
-            // 
-            this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(766, 485);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(60, 20);
-            this.label18.TabIndex = 19;
-            this.label18.Text = "label18";
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(285, 106);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(112, 26);
-            this.textBox1.TabIndex = 20;
+            this.button1Label.AutoSize = true;
+            this.button1Label.Location = new System.Drawing.Point(47, 173);
+            this.button1Label.Name = "button1Label";
+            this.button1Label.Size = new System.Drawing.Size(70, 20);
+            this.button1Label.TabIndex = 4;
+            this.button1Label.Text = "Button 1";
             // 
             // connected
             // 
             this.connected.AutoSize = true;
-            this.connected.Location = new System.Drawing.Point(72, 249);
+            this.connected.Location = new System.Drawing.Point(263, 62);
             this.connected.Name = "connected";
-            this.connected.Size = new System.Drawing.Size(60, 20);
+            this.connected.Size = new System.Drawing.Size(113, 20);
             this.connected.TabIndex = 21;
-            this.connected.Text = "label19";
+            this.connected.Text = "Not connected";
+            // 
+            // serialSendBox
+            // 
+            this.serialSendBox.Location = new System.Drawing.Point(462, 57);
+            this.serialSendBox.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.serialSendBox.Name = "serialSendBox";
+            this.serialSendBox.Size = new System.Drawing.Size(148, 26);
+            this.serialSendBox.TabIndex = 24;
+            // 
+            // button1IsProgram
+            // 
+            this.button1IsProgram.AutoSize = true;
+            this.button1IsProgram.Location = new System.Drawing.Point(51, 208);
+            this.button1IsProgram.Name = "button1IsProgram";
+            this.button1IsProgram.Size = new System.Drawing.Size(104, 24);
+            this.button1IsProgram.TabIndex = 26;
+            this.button1IsProgram.Text = "Program?";
+            this.button1IsProgram.UseVisualStyleBackColor = true;
+            this.button1IsProgram.CheckedChanged += new System.EventHandler(this.button1IsProgramCheckedChanged);
+            // 
+            // button1DropDown
+            // 
+            this.button1DropDown.FormattingEnabled = true;
+            this.button1DropDown.Location = new System.Drawing.Point(51, 238);
+            this.button1DropDown.Name = "button1DropDown";
+            this.button1DropDown.Size = new System.Drawing.Size(168, 28);
+            this.button1DropDown.TabIndex = 27;
+            // 
+            // button2DropDown
+            // 
+            this.button2DropDown.FormattingEnabled = true;
+            this.button2DropDown.Location = new System.Drawing.Point(226, 238);
+            this.button2DropDown.Name = "button2DropDown";
+            this.button2DropDown.Size = new System.Drawing.Size(168, 28);
+            this.button2DropDown.TabIndex = 30;
+            // 
+            // button2IsProgram
+            // 
+            this.button2IsProgram.AutoSize = true;
+            this.button2IsProgram.Location = new System.Drawing.Point(226, 208);
+            this.button2IsProgram.Name = "button2IsProgram";
+            this.button2IsProgram.Size = new System.Drawing.Size(104, 24);
+            this.button2IsProgram.TabIndex = 29;
+            this.button2IsProgram.Text = "Program?";
+            this.button2IsProgram.UseVisualStyleBackColor = true;
+            this.button2IsProgram.CheckedChanged += new System.EventHandler(this.button2IsProgramCheckedChanged);
+            // 
+            // button2Label
+            // 
+            this.button2Label.AutoSize = true;
+            this.button2Label.Location = new System.Drawing.Point(222, 173);
+            this.button2Label.Name = "button2Label";
+            this.button2Label.Size = new System.Drawing.Size(70, 20);
+            this.button2Label.TabIndex = 28;
+            this.button2Label.Text = "Button 2";
+            // 
+            // button4DropDown
+            // 
+            this.button4DropDown.FormattingEnabled = true;
+            this.button4DropDown.Location = new System.Drawing.Point(574, 238);
+            this.button4DropDown.Name = "button4DropDown";
+            this.button4DropDown.Size = new System.Drawing.Size(168, 28);
+            this.button4DropDown.TabIndex = 36;
+            // 
+            // button4IsProgram
+            // 
+            this.button4IsProgram.AutoSize = true;
+            this.button4IsProgram.Location = new System.Drawing.Point(574, 208);
+            this.button4IsProgram.Name = "button4IsProgram";
+            this.button4IsProgram.Size = new System.Drawing.Size(104, 24);
+            this.button4IsProgram.TabIndex = 35;
+            this.button4IsProgram.Text = "Program?";
+            this.button4IsProgram.UseVisualStyleBackColor = true;
+            this.button4IsProgram.CheckedChanged += new System.EventHandler(this.button4IsProgramCheckedChanged);
+            // 
+            // button4Label
+            // 
+            this.button4Label.AutoSize = true;
+            this.button4Label.Location = new System.Drawing.Point(570, 173);
+            this.button4Label.Name = "button4Label";
+            this.button4Label.Size = new System.Drawing.Size(70, 20);
+            this.button4Label.TabIndex = 34;
+            this.button4Label.Text = "Button 4";
+            // 
+            // button3DropDown
+            // 
+            this.button3DropDown.FormattingEnabled = true;
+            this.button3DropDown.Location = new System.Drawing.Point(400, 238);
+            this.button3DropDown.Name = "button3DropDown";
+            this.button3DropDown.Size = new System.Drawing.Size(168, 28);
+            this.button3DropDown.TabIndex = 33;
+            // 
+            // button3IsProgram
+            // 
+            this.button3IsProgram.AutoSize = true;
+            this.button3IsProgram.Location = new System.Drawing.Point(400, 208);
+            this.button3IsProgram.Name = "button3IsProgram";
+            this.button3IsProgram.Size = new System.Drawing.Size(104, 24);
+            this.button3IsProgram.TabIndex = 32;
+            this.button3IsProgram.Text = "Program?";
+            this.button3IsProgram.UseVisualStyleBackColor = true;
+            this.button3IsProgram.CheckedChanged += new System.EventHandler(this.button3IsProgramCheckedChanged);
+            // 
+            // button3Label
+            // 
+            this.button3Label.AutoSize = true;
+            this.button3Label.Location = new System.Drawing.Point(396, 173);
+            this.button3Label.Name = "button3Label";
+            this.button3Label.Size = new System.Drawing.Size(70, 20);
+            this.button3Label.TabIndex = 31;
+            this.button3Label.Text = "Button 3";
+            // 
+            // button8DropDown
+            // 
+            this.button8DropDown.FormattingEnabled = true;
+            this.button8DropDown.Location = new System.Drawing.Point(574, 375);
+            this.button8DropDown.Name = "button8DropDown";
+            this.button8DropDown.Size = new System.Drawing.Size(168, 28);
+            this.button8DropDown.TabIndex = 48;
+            // 
+            // button8IsProgram
+            // 
+            this.button8IsProgram.AutoSize = true;
+            this.button8IsProgram.Location = new System.Drawing.Point(574, 345);
+            this.button8IsProgram.Name = "button8IsProgram";
+            this.button8IsProgram.Size = new System.Drawing.Size(104, 24);
+            this.button8IsProgram.TabIndex = 47;
+            this.button8IsProgram.Text = "Program?";
+            this.button8IsProgram.UseVisualStyleBackColor = true;
+            this.button8IsProgram.CheckedChanged += new System.EventHandler(this.button8IsProgramCheckedChanged);
+            // 
+            // button8Label
+            // 
+            this.button8Label.AutoSize = true;
+            this.button8Label.Location = new System.Drawing.Point(570, 310);
+            this.button8Label.Name = "button8Label";
+            this.button8Label.Size = new System.Drawing.Size(70, 20);
+            this.button8Label.TabIndex = 46;
+            this.button8Label.Text = "Button 8";
+            // 
+            // button7DropDown
+            // 
+            this.button7DropDown.FormattingEnabled = true;
+            this.button7DropDown.Location = new System.Drawing.Point(400, 375);
+            this.button7DropDown.Name = "button7DropDown";
+            this.button7DropDown.Size = new System.Drawing.Size(168, 28);
+            this.button7DropDown.TabIndex = 45;
+            // 
+            // button7IsProgram
+            // 
+            this.button7IsProgram.AutoSize = true;
+            this.button7IsProgram.Location = new System.Drawing.Point(400, 345);
+            this.button7IsProgram.Name = "button7IsProgram";
+            this.button7IsProgram.Size = new System.Drawing.Size(104, 24);
+            this.button7IsProgram.TabIndex = 44;
+            this.button7IsProgram.Text = "Program?";
+            this.button7IsProgram.UseVisualStyleBackColor = true;
+            this.button7IsProgram.CheckedChanged += new System.EventHandler(this.button7IsProgramCheckedChanged);
+            // 
+            // button7Label
+            // 
+            this.button7Label.AutoSize = true;
+            this.button7Label.Location = new System.Drawing.Point(396, 310);
+            this.button7Label.Name = "button7Label";
+            this.button7Label.Size = new System.Drawing.Size(70, 20);
+            this.button7Label.TabIndex = 43;
+            this.button7Label.Text = "Button 7";
+            // 
+            // button6DropDown
+            // 
+            this.button6DropDown.FormattingEnabled = true;
+            this.button6DropDown.Location = new System.Drawing.Point(226, 375);
+            this.button6DropDown.Name = "button6DropDown";
+            this.button6DropDown.Size = new System.Drawing.Size(168, 28);
+            this.button6DropDown.TabIndex = 42;
+            // 
+            // button6IsProgram
+            // 
+            this.button6IsProgram.AutoSize = true;
+            this.button6IsProgram.Location = new System.Drawing.Point(226, 345);
+            this.button6IsProgram.Name = "button6IsProgram";
+            this.button6IsProgram.Size = new System.Drawing.Size(104, 24);
+            this.button6IsProgram.TabIndex = 41;
+            this.button6IsProgram.Text = "Program?";
+            this.button6IsProgram.UseVisualStyleBackColor = true;
+            this.button6IsProgram.CheckedChanged += new System.EventHandler(this.button6IsProgramCheckedChanged);
+            // 
+            // button6Label
+            // 
+            this.button6Label.AutoSize = true;
+            this.button6Label.Location = new System.Drawing.Point(222, 310);
+            this.button6Label.Name = "button6Label";
+            this.button6Label.Size = new System.Drawing.Size(70, 20);
+            this.button6Label.TabIndex = 40;
+            this.button6Label.Text = "Button 6";
+            // 
+            // button5DropDown
+            // 
+            this.button5DropDown.FormattingEnabled = true;
+            this.button5DropDown.Location = new System.Drawing.Point(51, 375);
+            this.button5DropDown.Name = "button5DropDown";
+            this.button5DropDown.Size = new System.Drawing.Size(168, 28);
+            this.button5DropDown.TabIndex = 39;
+            // 
+            // button5IsProgram
+            // 
+            this.button5IsProgram.AutoSize = true;
+            this.button5IsProgram.Location = new System.Drawing.Point(51, 345);
+            this.button5IsProgram.Name = "button5IsProgram";
+            this.button5IsProgram.Size = new System.Drawing.Size(104, 24);
+            this.button5IsProgram.TabIndex = 38;
+            this.button5IsProgram.Text = "Program?";
+            this.button5IsProgram.UseVisualStyleBackColor = true;
+            this.button5IsProgram.CheckedChanged += new System.EventHandler(this.button5IsProgramCheckedChanged);
+            // 
+            // button5Label
+            // 
+            this.button5Label.AutoSize = true;
+            this.button5Label.Location = new System.Drawing.Point(47, 310);
+            this.button5Label.Name = "button5Label";
+            this.button5Label.Size = new System.Drawing.Size(70, 20);
+            this.button5Label.TabIndex = 37;
+            this.button5Label.Text = "Button 5";
+            // 
+            // serialLabel
+            // 
+            this.serialLabel.AutoSize = true;
+            this.serialLabel.Location = new System.Drawing.Point(550, 29);
+            this.serialLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.serialLabel.Name = "serialLabel";
+            this.serialLabel.Size = new System.Drawing.Size(128, 20);
+            this.serialLabel.TabIndex = 25;
+            this.serialLabel.Text = "Serial debugging";
             // 
             // serialSendButton
             // 
-            this.serialSendButton.Location = new System.Drawing.Point(294, 365);
+            this.serialSendButton.Location = new System.Drawing.Point(621, 54);
             this.serialSendButton.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.serialSendButton.Name = "serialSendButton";
             this.serialSendButton.Size = new System.Drawing.Size(112, 35);
@@ -269,56 +367,45 @@
             this.serialSendButton.UseVisualStyleBackColor = true;
             this.serialSendButton.Click += new System.EventHandler(this.serialSendClick);
             // 
-            // serialSendBox
-            // 
-            this.serialSendBox.Location = new System.Drawing.Point(135, 368);
-            this.serialSendBox.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.serialSendBox.Name = "serialSendBox";
-            this.serialSendBox.Size = new System.Drawing.Size(148, 26);
-            this.serialSendBox.TabIndex = 24;
-            // 
-            // serialLabel
-            // 
-            this.serialLabel.AutoSize = true;
-            this.serialLabel.Location = new System.Drawing.Point(258, 340);
-            this.serialLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.serialLabel.Name = "serialLabel";
-            this.serialLabel.Size = new System.Drawing.Size(46, 20);
-            this.serialLabel.TabIndex = 25;
-            this.serialLabel.Text = "serial";
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(900, 563);
+            this.ClientSize = new System.Drawing.Size(775, 475);
+            this.Controls.Add(this.button8DropDown);
+            this.Controls.Add(this.button8IsProgram);
+            this.Controls.Add(this.button8Label);
+            this.Controls.Add(this.button7DropDown);
+            this.Controls.Add(this.button7IsProgram);
+            this.Controls.Add(this.button7Label);
+            this.Controls.Add(this.button6DropDown);
+            this.Controls.Add(this.button6IsProgram);
+            this.Controls.Add(this.button6Label);
+            this.Controls.Add(this.button5DropDown);
+            this.Controls.Add(this.button5IsProgram);
+            this.Controls.Add(this.button5Label);
+            this.Controls.Add(this.button4DropDown);
+            this.Controls.Add(this.button4IsProgram);
+            this.Controls.Add(this.button4Label);
+            this.Controls.Add(this.button3DropDown);
+            this.Controls.Add(this.button3IsProgram);
+            this.Controls.Add(this.button3Label);
+            this.Controls.Add(this.button2DropDown);
+            this.Controls.Add(this.button2IsProgram);
+            this.Controls.Add(this.button2Label);
+            this.Controls.Add(this.button1DropDown);
+            this.Controls.Add(this.button1IsProgram);
             this.Controls.Add(this.serialLabel);
             this.Controls.Add(this.serialSendBox);
             this.Controls.Add(this.serialSendButton);
             this.Controls.Add(this.connected);
-            this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.label18);
-            this.Controls.Add(this.label17);
-            this.Controls.Add(this.label16);
-            this.Controls.Add(this.label15);
-            this.Controls.Add(this.label14);
-            this.Controls.Add(this.label13);
-            this.Controls.Add(this.label12);
-            this.Controls.Add(this.label11);
-            this.Controls.Add(this.label10);
-            this.Controls.Add(this.label9);
-            this.Controls.Add(this.label8);
-            this.Controls.Add(this.label7);
-            this.Controls.Add(this.label6);
-            this.Controls.Add(this.label5);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.label3);
+            this.Controls.Add(this.button1Label);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.buttonPort);
             this.Controls.Add(this.comboBoxPort);
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.Text = "  ";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -332,27 +419,34 @@
         private System.Windows.Forms.Button buttonPort;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.Label label15;
-        private System.Windows.Forms.Label label16;
-        private System.Windows.Forms.Label label17;
-        private System.Windows.Forms.Label label18;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Label button1Label;
         private System.Windows.Forms.Label connected;
-        private System.Windows.Forms.Button serialSendButton;
         private System.Windows.Forms.TextBox serialSendBox;
+        private System.Windows.Forms.CheckBox button1IsProgram;
+        private System.Windows.Forms.ComboBox button1DropDown;
+        private System.Windows.Forms.ComboBox button2DropDown;
+        private System.Windows.Forms.CheckBox button2IsProgram;
+        private System.Windows.Forms.Label button2Label;
+        private System.Windows.Forms.ComboBox button4DropDown;
+        private System.Windows.Forms.CheckBox button4IsProgram;
+        private System.Windows.Forms.Label button4Label;
+        private System.Windows.Forms.ComboBox button3DropDown;
+        private System.Windows.Forms.CheckBox button3IsProgram;
+        private System.Windows.Forms.Label button3Label;
+        private System.Windows.Forms.ComboBox button8DropDown;
+        private System.Windows.Forms.CheckBox button8IsProgram;
+        private System.Windows.Forms.Label button8Label;
+        private System.Windows.Forms.ComboBox button7DropDown;
+        private System.Windows.Forms.CheckBox button7IsProgram;
+        private System.Windows.Forms.Label button7Label;
+        private System.Windows.Forms.ComboBox button6DropDown;
+        private System.Windows.Forms.CheckBox button6IsProgram;
+        private System.Windows.Forms.Label button6Label;
+        private System.Windows.Forms.ComboBox button5DropDown;
+        private System.Windows.Forms.CheckBox button5IsProgram;
+        private System.Windows.Forms.Label button5Label;
         private System.Windows.Forms.Label serialLabel;
+        private System.Windows.Forms.Button serialSendButton;
     }
 }
 
