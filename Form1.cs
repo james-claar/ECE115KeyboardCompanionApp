@@ -105,6 +105,7 @@ namespace ECE115
             try
             {
                 serialPort1.WriteLine(command);
+                MessageBox.Show(command);
             }
             catch (Exception ex)
             {
