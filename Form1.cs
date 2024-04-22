@@ -17,17 +17,25 @@ namespace ECE115
 {
     public partial class Form1 : Form
     {
-        List<string> allPrograms = new List<string>()
+        List<string> allProgramFilePaths = new List<string>()
         {
             "notepad.exe",
             "mspaint.exe",
-            "systemsettings.exe",
+            "calc.exe",
+            "Taskmgr.exe",
+        };
+        List<string> allProgramNames = new List<string>()
+        {
+            "Notepad",
+            "MS Paint",
+            "Calculator",
+            "Task Manager",
         };
         List<int> selectedPrograms = new List<int>() // Which index in allPrograms each button points to
         {
             0,
-            1,
-            2,
+            0,
+            0,
             0,
             0,
             0,
@@ -105,7 +113,6 @@ namespace ECE115
             try
             {
                 serialPort1.WriteLine(command);
-                MessageBox.Show(command);
             }
             catch (Exception ex)
             {
@@ -116,7 +123,6 @@ namespace ECE115
         private void enableSerialUI()
         {
             // Enables all serial-based elements
-            serialSendButton.Enabled = true;
             button1IsProgram.Enabled = true;
             button2IsProgram.Enabled = true;
             button3IsProgram.Enabled = true;
@@ -154,7 +160,7 @@ namespace ECE115
                 enableSerialUI();
                 getArduinoConfiguration();
             }
-            catch (Exception ex)
+            catch
             {
                 MessageBox.Show("Couldn't connect to keyboard.", "Error");
             }
@@ -196,7 +202,7 @@ namespace ECE115
 
                         if (r >= 0 && r <= 7)
                         {
-                            Process.Start(allPrograms[selectedPrograms[r]]);
+                            Process.Start(allProgramFilePaths[selectedPrograms[r]]);
                         }
                     }
                     else if (count == 16)
@@ -219,18 +225,6 @@ namespace ECE115
                         MessageBox.Show("Received serial message from Arduino of incorrect length.", "Error");
                     }
                 }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, "Error");
-            }
-        }
-
-        private void serialSendClick(object sender, EventArgs e)
-        {
-            try
-            {
-                serialPort1.WriteLine(serialSendBox.Text);
             }
             catch (Exception ex)
             {
@@ -303,7 +297,7 @@ namespace ECE115
             {
                 Action safeSetList = delegate
                 {
-                    setDropDownList(dropdown, allPrograms);
+                    setDropDownList(dropdown, allProgramNames);
                     dropdown.SelectedIndex = selectedPrograms[buttonNo - 1];
                 };
                 dropdown.Invoke(safeSetList);
@@ -312,7 +306,7 @@ namespace ECE115
             {
                 Action safeSetList = delegate {
                     setDropDownList(dropdown, allCharacters);
-                    dropdown.SelectedIndex = dropdown.FindStringExact(configuredKeys[buttonNo - 1]);
+                    dropdown.SelectedIndex = dropdown.Items.IndexOf(configuredKeys[buttonNo - 1]);
                 };
                 dropdown.Invoke(safeSetList);
             }
@@ -320,7 +314,8 @@ namespace ECE115
 
         private void setDropDownList(ComboBox dropdown, List<string> selectList)
         {
-            dropdown.DataSource = selectList;
+            List<string> tempList = new List<string>(selectList);
+            dropdown.DataSource = tempList;
         }
 
         private void button1IsProgramCheckedChanged(object sender, EventArgs e)
@@ -365,6 +360,46 @@ namespace ECE115
 
         private void button1DropDown_SelectedIndexChanged(object sender, EventArgs e)
         {
+            // DO NOT USE (updates by program also call this)
+        }
+
+        private void button2DropDown_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            // DO NOT USE (updates by program also call this)
+        }
+
+        private void button3DropDown_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            // DO NOT USE (updates by program also call this)
+        }
+
+        private void button4DropDown_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            // DO NOT USE (updates by program also call this)
+        }
+
+        private void button5DropDown_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            // DO NOT USE (updates by program also call this)
+        }
+
+        private void button6DropDown_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            // DO NOT USE (updates by program also call this)
+        }
+
+        private void button7DropDown_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            // DO NOT USE (updates by program also call this)
+        }
+
+        private void button8DropDown_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            // DO NOT USE (updates by program also call this)
+        }
+
+        private void button1DropDown_SelectionChangeCommitted(object sender, EventArgs e)
+        {
             if (button1IsProgram.Checked)
             {
                 selectedPrograms[0] = button1DropDown.SelectedIndex;
@@ -375,7 +410,7 @@ namespace ECE115
             }
         }
 
-        private void button2DropDown_SelectedIndexChanged(object sender, EventArgs e)
+        private void button2DropDown_SelectionChangeCommitted(object sender, EventArgs e)
         {
             if (button2IsProgram.Checked)
             {
@@ -387,7 +422,7 @@ namespace ECE115
             }
         }
 
-        private void button3DropDown_SelectedIndexChanged(object sender, EventArgs e)
+        private void button3DropDown_SelectionChangeCommitted(object sender, EventArgs e)
         {
             if (button3IsProgram.Checked)
             {
@@ -399,7 +434,7 @@ namespace ECE115
             }
         }
 
-        private void button4DropDown_SelectedIndexChanged(object sender, EventArgs e)
+        private void button4DropDown_SelectionChangeCommitted(object sender, EventArgs e)
         {
             if (button4IsProgram.Checked)
             {
@@ -411,7 +446,7 @@ namespace ECE115
             }
         }
 
-        private void button5DropDown_SelectedIndexChanged(object sender, EventArgs e)
+        private void button5DropDown_SelectionChangeCommitted(object sender, EventArgs e)
         {
             if (button5IsProgram.Checked)
             {
@@ -423,7 +458,7 @@ namespace ECE115
             }
         }
 
-        private void button6DropDown_SelectedIndexChanged(object sender, EventArgs e)
+        private void button6DropDown_SelectionChangeCommitted(object sender, EventArgs e)
         {
             if (button6IsProgram.Checked)
             {
@@ -435,7 +470,7 @@ namespace ECE115
             }
         }
 
-        private void button7DropDown_SelectedIndexChanged(object sender, EventArgs e)
+        private void button7DropDown_SelectionChangeCommitted(object sender, EventArgs e)
         {
             if (button7IsProgram.Checked)
             {
@@ -447,7 +482,7 @@ namespace ECE115
             }
         }
 
-        private void button8DropDown_SelectedIndexChanged(object sender, EventArgs e)
+        private void button8DropDown_SelectionChangeCommitted(object sender, EventArgs e)
         {
             if (button8IsProgram.Checked)
             {

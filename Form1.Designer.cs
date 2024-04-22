@@ -36,7 +36,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.button1Label = new System.Windows.Forms.Label();
             this.connected = new System.Windows.Forms.Label();
-            this.serialSendBox = new System.Windows.Forms.TextBox();
             this.button1IsProgram = new System.Windows.Forms.CheckBox();
             this.button1DropDown = new System.Windows.Forms.ComboBox();
             this.button2DropDown = new System.Windows.Forms.ComboBox();
@@ -60,8 +59,8 @@
             this.button5DropDown = new System.Windows.Forms.ComboBox();
             this.button5IsProgram = new System.Windows.Forms.CheckBox();
             this.button5Label = new System.Windows.Forms.Label();
-            this.serialLabel = new System.Windows.Forms.Label();
-            this.serialSendButton = new System.Windows.Forms.Button();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // serialPort1
@@ -123,14 +122,6 @@
             this.connected.TabIndex = 21;
             this.connected.Text = "Not connected";
             // 
-            // serialSendBox
-            // 
-            this.serialSendBox.Location = new System.Drawing.Point(462, 57);
-            this.serialSendBox.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.serialSendBox.Name = "serialSendBox";
-            this.serialSendBox.Size = new System.Drawing.Size(148, 26);
-            this.serialSendBox.TabIndex = 24;
-            // 
             // button1IsProgram
             // 
             this.button1IsProgram.AutoSize = true;
@@ -152,6 +143,7 @@
             this.button1DropDown.Size = new System.Drawing.Size(168, 28);
             this.button1DropDown.TabIndex = 27;
             this.button1DropDown.SelectedIndexChanged += new System.EventHandler(this.button1DropDown_SelectedIndexChanged);
+            this.button1DropDown.SelectionChangeCommitted += new System.EventHandler(this.button1DropDown_SelectionChangeCommitted);
             // 
             // button2DropDown
             // 
@@ -162,6 +154,7 @@
             this.button2DropDown.Size = new System.Drawing.Size(168, 28);
             this.button2DropDown.TabIndex = 30;
             this.button2DropDown.SelectedIndexChanged += new System.EventHandler(this.button2DropDown_SelectedIndexChanged);
+            this.button2DropDown.SelectionChangeCommitted += new System.EventHandler(this.button2DropDown_SelectionChangeCommitted);
             // 
             // button2IsProgram
             // 
@@ -193,6 +186,7 @@
             this.button4DropDown.Size = new System.Drawing.Size(168, 28);
             this.button4DropDown.TabIndex = 36;
             this.button4DropDown.SelectedIndexChanged += new System.EventHandler(this.button4DropDown_SelectedIndexChanged);
+            this.button4DropDown.SelectionChangeCommitted += new System.EventHandler(this.button4DropDown_SelectionChangeCommitted);
             // 
             // button4IsProgram
             // 
@@ -224,6 +218,7 @@
             this.button3DropDown.Size = new System.Drawing.Size(168, 28);
             this.button3DropDown.TabIndex = 33;
             this.button3DropDown.SelectedIndexChanged += new System.EventHandler(this.button3DropDown_SelectedIndexChanged);
+            this.button3DropDown.SelectionChangeCommitted += new System.EventHandler(this.button3DropDown_SelectionChangeCommitted);
             // 
             // button3IsProgram
             // 
@@ -255,6 +250,7 @@
             this.button8DropDown.Size = new System.Drawing.Size(168, 28);
             this.button8DropDown.TabIndex = 48;
             this.button8DropDown.SelectedIndexChanged += new System.EventHandler(this.button8DropDown_SelectedIndexChanged);
+            this.button8DropDown.SelectionChangeCommitted += new System.EventHandler(this.button8DropDown_SelectionChangeCommitted);
             // 
             // button8IsProgram
             // 
@@ -286,6 +282,7 @@
             this.button7DropDown.Size = new System.Drawing.Size(168, 28);
             this.button7DropDown.TabIndex = 45;
             this.button7DropDown.SelectedIndexChanged += new System.EventHandler(this.button7DropDown_SelectedIndexChanged);
+            this.button7DropDown.SelectionChangeCommitted += new System.EventHandler(this.button7DropDown_SelectionChangeCommitted);
             // 
             // button7IsProgram
             // 
@@ -317,6 +314,7 @@
             this.button6DropDown.Size = new System.Drawing.Size(168, 28);
             this.button6DropDown.TabIndex = 42;
             this.button6DropDown.SelectedIndexChanged += new System.EventHandler(this.button6DropDown_SelectedIndexChanged);
+            this.button6DropDown.SelectionChangeCommitted += new System.EventHandler(this.button6DropDown_SelectionChangeCommitted);
             // 
             // button6IsProgram
             // 
@@ -348,6 +346,7 @@
             this.button5DropDown.Size = new System.Drawing.Size(168, 28);
             this.button5DropDown.TabIndex = 39;
             this.button5DropDown.SelectedIndexChanged += new System.EventHandler(this.button5DropDown_SelectedIndexChanged);
+            this.button5DropDown.SelectionChangeCommitted += new System.EventHandler(this.button5DropDown_SelectionChangeCommitted);
             // 
             // button5IsProgram
             // 
@@ -370,33 +369,30 @@
             this.button5Label.TabIndex = 37;
             this.button5Label.Text = "Button 5";
             // 
-            // serialLabel
+            // textBox1
             // 
-            this.serialLabel.AutoSize = true;
-            this.serialLabel.Location = new System.Drawing.Point(550, 29);
-            this.serialLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.serialLabel.Name = "serialLabel";
-            this.serialLabel.Size = new System.Drawing.Size(128, 20);
-            this.serialLabel.TabIndex = 25;
-            this.serialLabel.Text = "Serial debugging";
+            this.textBox1.Location = new System.Drawing.Point(447, 55);
+            this.textBox1.Multiline = true;
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(295, 26);
+            this.textBox1.TabIndex = 49;
             // 
-            // serialSendButton
+            // label3
             // 
-            this.serialSendButton.Enabled = false;
-            this.serialSendButton.Location = new System.Drawing.Point(621, 54);
-            this.serialSendButton.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.serialSendButton.Name = "serialSendButton";
-            this.serialSendButton.Size = new System.Drawing.Size(112, 35);
-            this.serialSendButton.TabIndex = 22;
-            this.serialSendButton.Text = "send";
-            this.serialSendButton.UseVisualStyleBackColor = true;
-            this.serialSendButton.Click += new System.EventHandler(this.serialSendClick);
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(509, 21);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(169, 20);
+            this.label3.TabIndex = 50;
+            this.label3.Text = "Dummy box (test keys)";
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(775, 475);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.textBox1);
             this.Controls.Add(this.button8DropDown);
             this.Controls.Add(this.button8IsProgram);
             this.Controls.Add(this.button8Label);
@@ -420,9 +416,6 @@
             this.Controls.Add(this.button2Label);
             this.Controls.Add(this.button1DropDown);
             this.Controls.Add(this.button1IsProgram);
-            this.Controls.Add(this.serialLabel);
-            this.Controls.Add(this.serialSendBox);
-            this.Controls.Add(this.serialSendButton);
             this.Controls.Add(this.connected);
             this.Controls.Add(this.button1Label);
             this.Controls.Add(this.label2);
@@ -446,7 +439,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label button1Label;
         private System.Windows.Forms.Label connected;
-        private System.Windows.Forms.TextBox serialSendBox;
         private System.Windows.Forms.CheckBox button1IsProgram;
         private System.Windows.Forms.ComboBox button1DropDown;
         private System.Windows.Forms.ComboBox button2DropDown;
@@ -470,8 +462,8 @@
         private System.Windows.Forms.ComboBox button5DropDown;
         private System.Windows.Forms.CheckBox button5IsProgram;
         private System.Windows.Forms.Label button5Label;
-        private System.Windows.Forms.Label serialLabel;
-        private System.Windows.Forms.Button serialSendButton;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Label label3;
     }
 }
 
