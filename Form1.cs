@@ -156,7 +156,7 @@ namespace ECE115
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, "Error");
+                MessageBox.Show("Couldn't connect to keyboard.", "Error");
             }
         }
 
