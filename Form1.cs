@@ -162,60 +162,67 @@ namespace ECE115
 
         private void serialPort1_DataReceived(object sender, SerialDataReceivedEventArgs e)
         {
-            if (serialPort1.IsOpen)
+            try
             {
-                List<byte> inputBuffer = new List<byte>();
-
-                // Read until we hit a newline
-                int count = 0;
-                byte inputByte;
-                while (true)
+                if (serialPort1.IsOpen)
                 {
-                    while (serialPort1.BytesToRead == 0) { };
-                    inputByte = (byte) serialPort1.ReadByte();
-                    if (inputByte == '\r')
+                    List<byte> inputBuffer = new List<byte>();
+
+                    // Read until we hit a newline
+                    int count = 0;
+                    byte inputByte;
+                    while (true)
                     {
-                        continue;
+                        while (serialPort1.BytesToRead == 0) { };
+                        inputByte = (byte)serialPort1.ReadByte();
+                        if (inputByte == '\r')
+                        {
+                            continue;
+                        }
+                        else if (inputByte == '\n')
+                        {
+                            break;
+                        }
+                        else
+                        {
+                            inputBuffer.Add(inputByte);
+                            count++;
+                        }
                     }
-                    else if (inputByte == '\n')
+
+                    if (count == 1)
                     {
-                        break;
+                        int r = inputBuffer[0] - '0' - 1; // Go through 0-7 instead of 1-8
+
+                        if (r >= 0 && r <= 7)
+                        {
+                            Process.Start(allPrograms[selectedPrograms[r]]);
+                        }
+                    }
+                    else if (count == 16)
+                    {
+                        // Binary / ASCII values each key is configured for
+                        for (int i = 0; i < 8; i++)
+                        {
+                            configuredKeys[i] = Encoding.ASCII.GetString(new[] { inputBuffer[i] });
+                        }
+
+                        // Boolean values of whether each button opens a program
+                        for (int i = 0; i < 8; i++)
+                        {
+                            isProgramOpener[i] = inputBuffer[i + 8] == '1';
+                            updateCheckboxSafe(i + 1, true, isProgramOpener[i], false);
+                        }
                     }
                     else
                     {
-                        inputBuffer.Add(inputByte);
-                        count++;
+                        MessageBox.Show("Received serial message from Arduino of incorrect length.", "Error");
                     }
                 }
-
-                if (count == 1)
-                {
-                    int r = inputBuffer[0] - '0' - 1; // Go through 0-7 instead of 1-8
-
-                    if (r >= 0 && r <= 7)
-                    {
-                        Process.Start(allPrograms[selectedPrograms[r]]);
-                    }
-                }
-                else if (count == 16)
-                {
-                    // Binary / ASCII values each key is configured for
-                    for (int i = 0; i < 8; i++)
-                    {
-                        configuredKeys[i] = Encoding.ASCII.GetString(new[] { inputBuffer[i] });
-                    }
-
-                    // Boolean values of whether each button opens a program
-                    for (int i = 0; i < 8; i++)
-                    {
-                        isProgramOpener[i] = inputBuffer[i + 8] == '1';
-                        updateCheckboxSafe(i + 1, true, isProgramOpener[i], false);
-                    }
-                }
-                else
-                {
-                    MessageBox.Show("Received serial message from Arduino of incorrect length.", "Error");
-                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error");
             }
         }
 
