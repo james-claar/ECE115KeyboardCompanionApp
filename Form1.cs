@@ -58,10 +58,10 @@ namespace ECE115
         };
         List<string> allCharacters = new List<string>()
         {
-            "a",
-            "b",
-            "c",
-            "d"
+            "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z",
+            "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z",
+            "0", "1", "2", "3", "4", "5", "6", "7", "8", "9",
+            "~", "`", "!", "@", "#", "$", "%", "^", "&", "*", "(", ")", "_", "-", "+", "=", "{", "}", "[", "]", "|", "\\", ":", ";", "'", "\"", "<", ">", ",", ".", "?", "/"
         };
 
         bool isArduinoConnected = false;
@@ -101,7 +101,7 @@ namespace ECE115
         private void setKeyASCII(int buttonNo, string asciiValue)
         {
             configuredKeys[buttonNo - 1] = asciiValue;
-            string command = "O" + buttonNo.ToString() + asciiValue[0];
+            string command = "V" + buttonNo.ToString() + asciiValue[0];
             try
             {
                 serialPort1.WriteLine(command);
@@ -305,6 +305,7 @@ namespace ECE115
             {
                 Action safeSetList = delegate {
                     setDropDownList(dropdown, allCharacters);
+                    dropdown.SelectedIndex = dropdown.FindStringExact(configuredKeys[buttonNo - 1]);
                 };
                 dropdown.Invoke(safeSetList);
             }
@@ -312,11 +313,7 @@ namespace ECE115
 
         private void setDropDownList(ComboBox dropdown, List<string> selectList)
         {
-            dropdown.Items.Clear();
-            foreach (string item in selectList)
-            {
-                dropdown.Items.Add(item);
-            }
+            dropdown.DataSource = selectList;
         }
 
         private void button1IsProgramCheckedChanged(object sender, EventArgs e)
@@ -361,42 +358,42 @@ namespace ECE115
 
         private void button1DropDown_SelectedIndexChanged(object sender, EventArgs e)
         {
-            setKeyASCII(1, button1DropDown.SelectedIndex.ToString());
+            setKeyASCII(1, button1DropDown.SelectedItem);
         }
 
         private void button2DropDown_SelectedIndexChanged(object sender, EventArgs e)
         {
-            setKeyASCII(2, button2DropDown.SelectedIndex.ToString());
+            setKeyASCII(2, button2DropDown.SelectedItem);
         }
 
         private void button3DropDown_SelectedIndexChanged(object sender, EventArgs e)
         {
-            setKeyASCII(3, button3DropDown.SelectedIndex.ToString());
+            setKeyASCII(3, button3DropDown.SelectedItem);
         }
 
         private void button4DropDown_SelectedIndexChanged(object sender, EventArgs e)
         {
-            setKeyASCII(4, button4DropDown.SelectedIndex.ToString());
+            setKeyASCII(4, button3DropDown.SelectedItem);
         }
 
         private void button5DropDown_SelectedIndexChanged(object sender, EventArgs e)
         {
-            setKeyASCII(5, button5DropDown.SelectedIndex.ToString());
+            setKeyASCII(5, button5DropDown.SelectedItem);
         }
 
         private void button6DropDown_SelectedIndexChanged(object sender, EventArgs e)
         {
-            setKeyASCII(6, button6DropDown.SelectedIndex.ToString());
+            setKeyASCII(6, button6DropDown.SelectedItem);
         }
 
         private void button7DropDown_SelectedIndexChanged(object sender, EventArgs e)
         {
-            setKeyASCII(7, button7DropDown.SelectedIndex.ToString());
+            setKeyASCII(7, button7DropDown.SelectedItem);
         }
 
         private void button8DropDown_SelectedIndexChanged(object sender, EventArgs e)
         {
-            setKeyASCII(8, button8DropDown.SelectedIndex.ToString());
+            setKeyASCII(8, button8DropDown.SelectedItem);
         }
     }
 }
