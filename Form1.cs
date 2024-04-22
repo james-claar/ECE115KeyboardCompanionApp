@@ -365,42 +365,98 @@ namespace ECE115
 
         private void button1DropDown_SelectedIndexChanged(object sender, EventArgs e)
         {
-            setKeyASCII(1, button1DropDown.SelectedItem.ToString());
+            if (button1IsProgram.Checked)
+            {
+                selectedPrograms[0] = button1DropDown.SelectedIndex;
+            }
+            else
+            {
+                setKeyASCII(1, button1DropDown.SelectedItem.ToString());
+            }
         }
 
         private void button2DropDown_SelectedIndexChanged(object sender, EventArgs e)
         {
-            setKeyASCII(2, button2DropDown.SelectedItem.ToString());
+            if (button2IsProgram.Checked)
+            {
+                selectedPrograms[1] = button2DropDown.SelectedIndex;
+            }
+            else
+            {
+                setKeyASCII(2, button2DropDown.SelectedItem.ToString());
+            }
         }
 
         private void button3DropDown_SelectedIndexChanged(object sender, EventArgs e)
         {
-            setKeyASCII(3, button3DropDown.SelectedItem.ToString());
+            if (button3IsProgram.Checked)
+            {
+                selectedPrograms[2] = button3DropDown.SelectedIndex;
+            }
+            else
+            {
+                setKeyASCII(3, button3DropDown.SelectedItem.ToString());
+            }
         }
 
         private void button4DropDown_SelectedIndexChanged(object sender, EventArgs e)
         {
-            setKeyASCII(4, button3DropDown.SelectedItem.ToString());
+            if (button4IsProgram.Checked)
+            {
+                selectedPrograms[3] = button4DropDown.SelectedIndex;
+            }
+            else
+            {
+                setKeyASCII(4, button4DropDown.SelectedItem.ToString());
+            }
         }
 
         private void button5DropDown_SelectedIndexChanged(object sender, EventArgs e)
         {
-            setKeyASCII(5, button5DropDown.SelectedItem.ToString());
+            if (button5IsProgram.Checked)
+            {
+                selectedPrograms[4] = button5DropDown.SelectedIndex;
+            }
+            else
+            {
+                setKeyASCII(5, button5DropDown.SelectedItem.ToString());
+            }
         }
 
         private void button6DropDown_SelectedIndexChanged(object sender, EventArgs e)
         {
-            setKeyASCII(6, button6DropDown.SelectedItem.ToString());
+            if (button6IsProgram.Checked)
+            {
+                selectedPrograms[5] = button6DropDown.SelectedIndex;
+            }
+            else
+            {
+                setKeyASCII(6, button6DropDown.SelectedItem.ToString());
+            }
         }
 
         private void button7DropDown_SelectedIndexChanged(object sender, EventArgs e)
         {
-            setKeyASCII(7, button7DropDown.SelectedItem.ToString());
+            if (button7IsProgram.Checked)
+            {
+                selectedPrograms[6] = button7DropDown.SelectedIndex;
+            }
+            else
+            {
+                setKeyASCII(7, button7DropDown.SelectedItem.ToString());
+            }
         }
 
         private void button8DropDown_SelectedIndexChanged(object sender, EventArgs e)
         {
-            setKeyASCII(8, button8DropDown.SelectedItem.ToString());
+            if (button8IsProgram.Checked)
+            {
+                selectedPrograms[7] = button8DropDown.SelectedIndex;
+            }
+            else
+            {
+                setKeyASCII(8, button8DropDown.SelectedItem.ToString());
+            }
         }
     }
 }
