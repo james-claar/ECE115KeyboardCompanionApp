@@ -361,42 +361,42 @@ namespace ECE115
 
         private void button1DropDown_SelectedIndexChanged(object sender, EventArgs e)
         {
-            
+            setKeyASCII(1, button1DropDown.SelectedIndex.ToString());
         }
 
         private void button2DropDown_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            setKeyASCII(2, button2DropDown.SelectedIndex.ToString());
         }
 
         private void button3DropDown_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            setKeyASCII(3, button3DropDown.SelectedIndex.ToString());
         }
 
         private void button4DropDown_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            setKeyASCII(4, button4DropDown.SelectedIndex.ToString());
         }
 
         private void button5DropDown_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            setKeyASCII(5, button5DropDown.SelectedIndex.ToString());
         }
 
         private void button6DropDown_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            setKeyASCII(6, button6DropDown.SelectedIndex.ToString());
         }
 
         private void button7DropDown_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            setKeyASCII(7, button7DropDown.SelectedIndex.ToString());
         }
 
         private void button8DropDown_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            setKeyASCII(8, button8DropDown.SelectedIndex.ToString());
         }
     }
 }
