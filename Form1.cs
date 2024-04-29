@@ -17,7 +17,7 @@ namespace ECE115
 {
     public partial class Form1 : Form
     {
-        List<string> allProgramFilePaths = new List<string>()
+        List<string> allProgramFilePaths = new List<string>() // programs that the keyboard can open
         {
             "notepad.exe",
             "mspaint.exe",
@@ -64,7 +64,7 @@ namespace ECE115
             false,
             false
         };
-        List<string> allCharacters = new List<string>()
+        List<string> allCharacters = new List<string>() // characters user can choose from
         {
             "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z",
             "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z",
@@ -92,7 +92,7 @@ namespace ECE115
             }
         }
 
-        private void setProgramOpener(int buttonNo, bool programOpener)
+        private void setProgramOpener(int buttonNo, bool programOpener) // configures buttons when program starts
         {
             isProgramOpener[buttonNo - 1] = programOpener;
             string command = "O" + buttonNo.ToString() + (programOpener ? "1" : "0");
@@ -106,7 +106,7 @@ namespace ECE115
             }
         }
 
-        private void setKeyASCII(int buttonNo, string asciiValue)
+        private void setKeyASCII(int buttonNo, string asciiValue) // sets key to ASCII value
         {
             configuredKeys[buttonNo - 1] = asciiValue;
             string command = "V" + buttonNo.ToString() + asciiValue[0];
@@ -152,7 +152,7 @@ namespace ECE115
         {
             try
             {
-                serialPort1.PortName = comboBoxPort.Text;
+                serialPort1.PortName = comboBoxPort.Text; // Connects to Arduino
                 serialPort1.BaudRate = 115200;
                 serialPort1.Open();
                 connected.Text = "Connected";
@@ -234,7 +234,7 @@ namespace ECE115
 
         public void updateCheckboxSafe(int buttonNo, bool setCheckbox = false, bool checkboxValue = false, bool tellArduino = true)
         {
-            System.Windows.Forms.CheckBox checkBox;
+            System.Windows.Forms.CheckBox checkBox; // updates combox when check box is pressed from letters to programs and vice versa
             ComboBox dropdown;
             switch (buttonNo)
             {
@@ -314,10 +314,10 @@ namespace ECE115
 
         private void setDropDownList(ComboBox dropdown, List<string> selectList)
         {
-            List<string> tempList = new List<string>(selectList);
+            List<string> tempList = new List<string>(selectList); // sets list 
             dropdown.DataSource = tempList;
         }
-
+        // updates each individual checkbox that goes to the switch statement
         private void button1IsProgramCheckedChanged(object sender, EventArgs e)
         {
             updateCheckboxSafe(1);
@@ -358,46 +358,7 @@ namespace ECE115
             updateCheckboxSafe(8);
         }
 
-        private void button1DropDown_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            // DO NOT USE (updates by program also call this)
-        }
-
-        private void button2DropDown_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            // DO NOT USE (updates by program also call this)
-        }
-
-        private void button3DropDown_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            // DO NOT USE (updates by program also call this)
-        }
-
-        private void button4DropDown_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            // DO NOT USE (updates by program also call this)
-        }
-
-        private void button5DropDown_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            // DO NOT USE (updates by program also call this)
-        }
-
-        private void button6DropDown_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            // DO NOT USE (updates by program also call this)
-        }
-
-        private void button7DropDown_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            // DO NOT USE (updates by program also call this)
-        }
-
-        private void button8DropDown_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            // DO NOT USE (updates by program also call this)
-        }
-
+        // when the user changes the combo box
         private void button1DropDown_SelectionChangeCommitted(object sender, EventArgs e)
         {
             if (button1IsProgram.Checked)
